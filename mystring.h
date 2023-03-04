@@ -41,8 +41,22 @@ public:
 	bool operator!=(MyString&) const;
 	char& operator[](const int n);
 	const char* c_str() const;
+	const char* data() const;
 	int length() const;
 	int capacity() const;
+	bool empty() const;
+	
+	
+	void insert(const int idx, const int count, const char chr);
+	void insert(const int idx, const char* str);
+	void insert(const int idx, std::string str);
+	void insert(const int idx, const char* str, const int count);
+	void insert(const int idx, std::string str, const int count);
+	void erase(const int index, const int count);
+	
+	
+	
+	
 	MyString();
 	MyString(std::string);
 	MyString(const char* newstr, size_t num);

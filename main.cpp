@@ -109,6 +109,12 @@ int main()
 
 
 
+	cout << "\nDATA():\n";
+	MyString str_1("Hello world!");
+	std::string s_1;
+	s_1 = str_1.data();
+	cout << s_1 << endl;
+
 
 
 	cout << "\nSIZE():\n";
@@ -117,6 +123,10 @@ int main()
 
 
 
+	cout << "\nEMPTY():\n";
+	MyString str3("Hello world!");
+	cout << str3.empty() << endl;
+
 
 
 	cout << "\nCAPACITY():\n";
@@ -124,6 +134,45 @@ int main()
 	cout << str4.capacity() << endl;
 
 
+
+	cout << "\nINSERT():\n";
+	MyString st1 = "aaaaa";
+	st1.insert(0, 1, '!');
+	cout << st1;
+	cout << endl;
+	st1.insert(3, 2, '@');
+	cout << st1;
+	cout << endl;
+	//
+	MyString st2 = "aaaaa";
+	st2.insert(1, "@@@@@");
+	cout << st2;
+	cout << endl;
+	//
+	MyString st3 = "aaaaa";
+	st3.insert(1, "@@@@@", 2);
+	cout << st3;
+	cout << endl;
+	//
+	MyString st4 = "aaaaa";
+	std::string st5 = "@@@@@";
+	st4.insert(1, st5);
+	cout << st4;
+	cout << endl;
+	//
+	MyString st6 = "aaaaa";
+	std::string st7 = "@@@@@";
+	st6.insert(1, st7, 2);
+	cout << st6;
+	cout << endl;
+
+
+
+	cout << "\nERASE():\n";
+	MyString stt1("Hello world!");
+	stt1.erase(5, 6);
+	cout << stt1;
+	cout << endl;
 
 
 	return EXIT_SUCCESS;

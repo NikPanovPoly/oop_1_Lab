@@ -70,12 +70,53 @@ void MyString::InsertSupliment(const int idx, const int len, const char* str)
 	this->length_f += len;
 }
 
+void MyString::insert(const int idx, const char* str)
+{
+	InsertSupliment(idx, strlen(str), str);
+}
+
+void MyString::insert(const int idx, std::string str)
+{
+	InsertSupliment(idx, str.size(), str.c_str());
+}
+
+void MyString::insert(const int idx, std::string str, const int count)
+{
+	insert(idx, str.c_str(), count);
+}
+
+void MyString::insert(const int idx, const char* str, const int count)
+{
+	char* newstr = new char[count + 1]{ 0 };
+	if (count > strlen(str))
+		return;
+	strncpy(newstr, str, count);
+	InsertSupliment(idx, count, newstr);
+	delete[] newstr;
+}
+
 char* MyString::CharStrConstructor(const int count, const int chr)
 {
 	char* newstr = new char[count + 1];
 	memset(newstr, chr, count);
 	newstr[count] = '\0';
 	return newstr;
+}
+
+void MyString::insert(const int idx, const int count, const char chr)
+{
+	char* newstr = CharStrConstructor(count, chr);
+	InsertSupliment(idx, count, newstr);
+	delete[] newstr;
+}
+
+void MyString::erase(const int index, const int count)
+{
+	if (index < 0 || index > this->length_f - 1 || count < 0 || index + count > this->length_f)
+		return;
+	for (int i = index, j = index + count; j <= this->length_f; ++i, ++j)
+		this->ptr[i] = this->ptr[j];
+	this->length_f -= count;
 }
 
 
@@ -220,10 +261,19 @@ const char* MyString::c_str() const
 	return this->ptr;
 }
 
+const char* MyString::data() const
+{
+	return this->ptr;
+}
 
 int MyString::length() const
 {
 	return this->length_f;
+}
+
+bool MyString::empty() const
+{
+	return this->length_f ? false : true;
 }
 
 int MyString::capacity() const
