@@ -214,7 +214,7 @@ int main()
 	string_1.append(3, '@');
 	cout << string_1;
 	cout << endl;
-	//
+	/*
 	MyString S2;
 	S2.clear();
 	S2.append("Hello ");
@@ -252,7 +252,7 @@ int main()
 	S7.append(S8, 6, 5);
 	cout << S7;
 	cout << endl;
-	
+	*/
 
 
 

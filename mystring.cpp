@@ -58,8 +58,9 @@ void MyString::clear()
 
 void MyString::Resize(const int newsize)
 {
-	char* tmp = new char[newsize];
-	strcpy(tmp, this->ptr);
+	char* tmp = new char[newsize] {0};
+	if (this->ptr != NULL)
+		strcpy(tmp, this->ptr);
 	delete[] this->ptr;
 	this->ptr = tmp;
 	this->capacity_f = newsize;
