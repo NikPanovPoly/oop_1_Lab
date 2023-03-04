@@ -204,5 +204,114 @@ int main()
 	cout << endl;
 
 
+
+	cout << "\nAPPEND():\n";
+	MyString string_1;
+	string_1.clear();
+	string_1.append(3, '!');
+	cout << string_1;
+	cout << endl;
+	string_1.append(3, '@');
+	cout << string_1;
+	cout << endl;
+	//
+	MyString S2;
+	S2.clear();
+	S2.append("Hello ");
+	cout << S2;
+	cout << endl;
+	S2.append("world");
+	cout << S2;
+	cout << endl;
+	//
+	MyString S3;
+	S3.clear();
+	S3.append("Hello world", 0, 6);
+	cout << S3;
+	cout << endl;
+	S3.append("Hello world", 6, 5);
+	cout << S3;
+	cout << endl;
+	//
+	MyString S4;
+	std::string S5 = "Hello ", S6 = "world";
+	S4.clear();
+	S4.append(S5);
+	cout << S4;
+	cout << endl;
+	S4.append(S6);
+	cout << S4;
+	cout << endl;
+	//
+	MyString S7;
+	std::string S8 = "Hello world";
+	S7.clear();
+	S7.append(S8, 0, 6);
+	cout << S7;
+	cout << endl;
+	S7.append(S8, 6, 5);
+	cout << S7;
+	cout << endl;
+	
+
+
+
+	cout << "\nREPLACE():\n";
+	MyString ST1 = "hello amazing world";
+	ST1.replace(6, 7, "wonderful");
+	cout << ST1;
+	cout << endl;
+	//
+	MyString ST2 = "hello amazing world";
+	std::string ST3 = "wonderful";
+	ST2.replace(6, 7, ST3);
+	cout << ST2;
+	cout << endl;
+
+
+
+	cout << "\nSUBSTR():\n";
+	MyString STR1 = "hello amazing world", STR2;
+	STR2 = STR1.substr(6);
+	cout << STR2;
+	cout << endl;
+	//
+	MyString STR3 = "hello amazing world", STR4;
+	STR4 = STR3.substr(6, 7);
+	cout << STR4;
+	cout << endl;
+
+
+
+	cout << "\nFIND():\n";
+	MyString string1 = "hello amazing world amazing";
+	int i1;
+	i1 = string1.find("amazing");
+	cout << i1 << endl;
+	//
+	MyString string2 = "hello amazing world amazing";
+	int i2;
+	i2 = string2.find("amazing", 7);
+	cout << i2 << endl;
+	//
+	MyString string3 = "hello amazing world amazing";
+	int i3;
+	std::string s__3 = "amazing";
+	i3 = string3.find(s__3);
+	cout << i3 << endl;
+	//
+	MyString string4 = "hello amazing world amazing";
+	int i4;
+	std::string s__4 = "amazing";
+	i4 = string4.find(s__4, 7);
+	cout << i4 << endl;
+
+
+
+
+
+
+
+
 	return EXIT_SUCCESS;
 }

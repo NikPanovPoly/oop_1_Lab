@@ -53,10 +53,19 @@ public:
 	void insert(const int idx, const char* str, const int count);
 	void insert(const int idx, std::string str, const int count);
 	void erase(const int index, const int count);
-	
-	
-	
-	
+	void append(const int count, const char chr);
+	void append(std::string str);
+	void append(const char* str);
+	void append(const char* str, const int index, const int count);
+	void append(std::string str, const int index, const int count);
+	void replace(const int index, const int count, const char* str);
+	void replace(const int index, const int count, std::string str);
+	int find(const char* str);
+	int find(const char* str, const int index);
+	int find(std::string str);
+	int find(std::string str, const int index);
+	const char* substr(const int index);
+	char* substr(const int index, const int count);
 	MyString();
 	MyString(std::string);
 	MyString(const char* newstr, size_t num);

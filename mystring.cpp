@@ -129,6 +129,64 @@ void MyString::erase(const int index, const int count)
 	this->length_f -= count;
 }
 
+void MyString::append(const int count, const char chr)
+{
+	insert(this->length_f, count, chr);
+}
+
+void MyString::append(std::string str)
+{
+	insert(this->length_f, str.c_str());
+}
+
+void MyString::append(const char* str)
+{
+	insert(this->length_f, str);
+}
+
+void MyString::append(const char* str, const int index, const int count)
+{
+	if (index + count > strlen(str) || index < 0 || count < 0)
+		return;
+	char* newstr = new char[count + 1]{ 0 };
+	strncpy(newstr, str + index, count);
+	InsertSupliment(this->length_f, count, newstr);
+	delete[] newstr;
+}
+
+void MyString::append(std::string str, const int index, const int count)
+{
+	append(str.c_str(), index, count);
+}
+
+void MyString::replace(const int index, const int count, const char* str)
+{
+	if (index < 0 || index > this->length_f - 1 || count < 0 || index + count > this->length_f)
+		return;
+	erase(index, count);
+	insert(index, str);
+}
+
+void MyString::replace(const int index, const int count, std::string str)
+{
+	replace(index, count, str.c_str());
+}
+
+const char* MyString::substr(const int index)
+{
+	if (index < 0 || index > this->length_f - 1)
+		return NULL;
+	return this->ptr + index;
+}
+
+char* MyString::substr(const int index, const int count)
+{
+	if (index < 0 || index + count > this->length_f - 1)
+		return NULL;
+	this->substr_f = new char[count + 1]{ 0 };
+	strncpy(this->substr_f, this->ptr + index, count);
+	return this->substr_f;
+}
 
 int MyString::FindSupliment(const char* str, const int index)
 {
@@ -138,7 +196,25 @@ int MyString::FindSupliment(const char* str, const int index)
 	return ptr ? (int)(ptr - this->ptr) : -1;
 }
 
+int MyString::find(const char* str)
+{
+	return FindSupliment(str, 0);
+}
 
+int MyString::find(const char* str, const int index)
+{
+	return FindSupliment(str, index);
+}
+
+int MyString::find(std::string str)
+{
+	return FindSupliment(str.c_str(), 0);
+}
+
+int MyString::find(std::string str, const int index)
+{
+	return FindSupliment(str.c_str(), index);
+}
 
 void MyString::EqSupliment(const int len, const char* str)
 {
