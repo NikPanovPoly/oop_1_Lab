@@ -45,8 +45,8 @@ public:
 	int length() const;
 	int capacity() const;
 	bool empty() const;
-	
-	
+	void shrink_to_fit();
+	void clear();
 	void insert(const int idx, const int count, const char chr);
 	void insert(const int idx, const char* str);
 	void insert(const int idx, std::string str);

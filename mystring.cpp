@@ -44,7 +44,17 @@ MyString::MyString(const char* newstr) : MyString(newstr, strlen(newstr)) { }
 
 MyString::MyString(const MyString & newstr) : MyString(newstr.ptr, newstr.length_f) { }
 
+void MyString::shrink_to_fit()
+{
+	Resize(strlen(this->ptr) + 1);
+}
 
+void MyString::clear()
+{
+	if (this->capacity_f)
+		this->ptr[0] = '\0';
+	this->length_f = 0;
+}
 
 void MyString::Resize(const int newsize)
 {

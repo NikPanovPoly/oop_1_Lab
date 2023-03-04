@@ -135,6 +135,35 @@ int main()
 
 
 
+	cout << "\nSHRINK_TO_FIT():\n";
+	MyString str5("Hello world!");
+	str5.erase(5, 6);
+	cout << str5;
+	cout << " ";
+	cout << str5.size();
+	cout << " ";
+	cout << str5.capacity();
+	cout << endl;
+	str5.shrink_to_fit();
+	cout << str5;
+	cout << " ";
+	cout << str5.size();
+	cout << " ";
+	cout << str5.capacity();
+	cout << endl;
+
+
+
+	cout << "\nCLEAR():\n";
+	MyString str6("Hello world!");
+	cout << str6;
+	cout << endl;
+	str6.clear();
+	cout << str6;
+	cout << endl;
+
+
+
 	cout << "\nINSERT():\n";
 	MyString st1 = "aaaaa";
 	st1.insert(0, 1, '!');
